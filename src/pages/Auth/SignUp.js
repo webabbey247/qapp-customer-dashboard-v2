@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Select from 'react-dropdown-select';
 import AuthLayout from '../../components/Layouts/AuthLayout';
 import { ContentFullColumn, ContentRow, GeneralMdText, CustomButton, Content2Column2 } from '../../assets/styles/GlobalStyles';
-import { FormWrapper, Form, Input, InputLabel, AuthSection, AuthContainer, AuthLogoContainter, AuthLogo, AuthStepCounter, AuthProgressbar, AuthProgressbarChild, AuthFormContainer, CountryPickerCard, CountryPicker, FormUpload, FormUploadContainer, FormUploadInput, FormUploadLabel, FormUploadIcon } from '../../assets/styles/FormStyles';
+import { FormWrapper, Form, Input, AuthSection, AuthContainer, AuthLogoContainter, AuthLogo, AuthStepCounter, AuthProgressbar, AuthProgressbarChild, AuthFormContainer, CountryPickerCard, CountryPicker, FormUpload, FormUploadContainer, FormUploadInput, FormUploadLabel, FormUploadIcon } from '../../assets/styles/FormStyles';
 import { bankLogo, fileUploadIcon } from '../../assets/images/images';
 
 
