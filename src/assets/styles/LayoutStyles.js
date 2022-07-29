@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
+import {  NavLink } from 'react-router-dom';
 
 export const MainContainer = styled.div`
 background: var(--primary);
@@ -35,7 +36,7 @@ export const NavbarWrapper = styled.div`
   width: 100%;
 `;
 
-export const NavLogo = styled(Link)`
+export const NavLogo = styled(NavLink)`
   cursor: pointer;
   text-decoration: none;
   display: flex;
@@ -72,7 +73,7 @@ margin-top: 15px;
 }
 `;
 
-export const MenuNavHref = styled(Link)`
+export const MenuNavHref = styled(NavLink)`
 color: var(--white);
 font-weight: 400;
 font-size: 15px;
@@ -216,14 +217,14 @@ font-weight: 800 !important;
 
 export const SidebarSubNav = styled.div`
 display: flex;
-justify-content: flex-end;
+justify-content: flex-start;
 flex-direction: column;
-align-items: flex-end;
-padding-right: 30px;
+align-items: flex-start;
+padding: 0 3rem;
 `;
 
-export const SidebarSubNavLink = styled(Link)`
-margin: 0.5rem 0;
+export const SidebarSubNavLink = styled(NavLink)`
+margin: 0.4rem 0;
 font-weight: 700;
 font-size: 14px;
 line-height: 25px;
@@ -234,9 +235,7 @@ text-align: center;
 text-decoration: none;
 
 &.active {
-  color: var(--white);
-background: var(--orange);
-padding: 10px 0;
+  color: var(--orange);
 border-radius: 4px 0px 0px 4px;
 font-weight: 800 !important;
 }

@@ -13,18 +13,16 @@ const Sidebar = () => {
                 <SidebarNav>
                     <SidebarNavGroup>
                         <SidebarNavGroupList>
-                          <Link to="/">
-                          <SidebarNavLink className='active'>
+                        <SidebarNavLink to="/">
                                 <SidebarNavLinkLogo src={dashboardIcon} alt='Dashboard' />
                                 <>Dashboard</>
                             </SidebarNavLink>
-                            </Link>
                         </SidebarNavGroupList>
                     </SidebarNavGroup>
 
                     <SidebarNavGroup>
                         <SidebarNavGroupList>
-                            <SidebarNavLink>
+                            <SidebarNavLink to="/dashboard/transactions-history">
                                 <SidebarNavLinkLogo src={activityIcon} alt='Activity' />
                                 <>Activity</>
                             </SidebarNavLink>
