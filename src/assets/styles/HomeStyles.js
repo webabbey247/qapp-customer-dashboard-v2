@@ -54,5 +54,5 @@ background-image: url("${chartPlaceholder}");
 background-repeat: no-repeat;
 background-position: 50%;
 background-size: contain;
-height: 280px;
+height: 285px;
 `;

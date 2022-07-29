@@ -53,6 +53,25 @@ export const Content4Column4 = styled.div`
   padding-left: 10px;
 `;
 
+
+export const Content70Column = styled.div`
+  flex: 0 0 60%;
+  max-width: 60%%;
+  position: relative;
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+`;
+
+export const Content30Column = styled.div`
+  flex: 0 0 40%;
+  max-width: 40%;
+  position: relative;
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+`;
+
 export const CustomDiv = styled.div`
   display: ${(props) => props.display || "flex"};
   flex-direction: ${(props) => props.flexDirection || "row"};
@@ -140,6 +159,7 @@ export const GeneralSmText = styled.p`
   font-family: ${(props) => props.fontFamily || "var(--font-regular)"};
   width: ${(props) => props.width || "100%"};
   height: ${(props) => props.height || "100%"};
+  opacity: ${(props) => props.opacity || ""};
   text-transform: ${(props) => props.textTransform || "lowercase"};
   cursor: pointer;
 `;

@@ -175,9 +175,14 @@ const SignUp = () => {
                                {stepCounter <= 4 && (
                                  <ContentRow>
                                  <ContentFullColumn>
-                                     <CustomButton onClick={validatedStep} type="button" color="var(--white)" background="var(--orange)" border="1px solid var(--orange)" margin="10px 0">
-                                         {stepCounter === 4 ? "Create Account" : "Continue"}
+                                     <CustomButton onClick={validatedStep} type="button" color="var(--white)" background="var(--orange)" border="1px solid var(--orange)" margin="10px 0">                                       
+                                         {stepCounter === 4 || stepCounter === 2  ? "Upload from device" : "Continue"}
                                      </CustomButton>
+                                     {stepCounter === 2 && (
+                                         <CustomButton type="button" color="var(--white)" background="var(--orange)" border="1px solid var(--orange)" margin="10px 0">
+                                       Take a Selfie
+                                     </CustomButton>
+                                    )}
                                  </ContentFullColumn>
                              </ContentRow>
                                )}

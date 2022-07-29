@@ -62,7 +62,7 @@ margin-bottom: 15px;
 export const MenuNavLi = styled.li`
 display: inline-block;
 line-height: 40px;
-margin-right: 25px;
+margin-right: 20px;
 animation: FadeIn 1s cubic-bezier(.65,.05,.36,1);
 animation-fill-mode: both;
 margin-top: 15px;
@@ -75,7 +75,7 @@ margin-top: 15px;
 export const MenuNavHref = styled(Link)`
 color: var(--white);
 font-weight: 400;
-font-size: 16px;
+font-size: 15px;
 line-height: 19px;
 color: #F7F7F7;
 text-decoration: none;
@@ -113,4 +113,173 @@ export const NavNightMood = styled.span`
 
 export const NavLanguageDropdownIcon = styled.span`
   margin-left: 0.2rem;
+`;
+
+
+// Dashboard Layout 
+export const DashboardContainer = styled.main`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--primary);
+`;
+
+export const DashboardContent = styled.main`
+display: flex;
+justify-content: flex-start;
+flex-direction: row;
+`;
+
+export const DashboardLTRContent = styled.div`
+flex: 0 0 18%;
+max-width: 18%;
+border-right: 1px solid #667D86;
+height: 100vh;
+min-height: 100vh;
+max-height: 100vh;
+// alt
+position: sticky;
+display: flex;
+flex-direction: column;
+flex: 1 0 auto;
+top: 0;
+`;
+
+export const SidebarContainer = styled.div`
+position: absolute;
+display: flex;
+flex: 1 1 auto;
+flex-direction: column;
+top: 0;
+bottom: 0;
+width: 100%;
+height: 100%;
+overflow: hidden;
+z-index: 10;
+background: inherit;
+left: 0;
+`;
+
+export const SidebarHeader = styled.div`
+display: flex;
+align-items: center;
+width: 100%;
+padding: 0.5rem 1rem;
+height: 70px;
+border-bottom: 1px solid #667D86;
+`;
+
+export const SidebarHeaderLogo = styled.img`
+height: 80px;
+width: 100%;
+`;
+
+export const SidebarNav = styled.div`
+flex: 1 1 auto;
+overscroll-behavior: contain;
+overflow-x: hidden;
+overflow-y: auto;
+position: relative;
+touch-action: auto;
+overflow-anchor: none;
+padding: 0.6rem 0;
+`;
+
+export const SidebarNavGroup = styled.div`
+padding: 1rem 0 0 1rem;
+`;
+
+export const SidebarNavGroupList = styled.div`
+display: flex;
+flex-direction: column;
+`;
+
+export const SidebarNavLink = styled.a`
+margin: 0.55rem 0;
+font-weight: 700;
+font-size: 14px;
+line-height: 25px;
+display: flex;
+color: var(--dashboard-nav-color);
+flex-direction: row;
+text-decoration: none;
+
+&.active {
+  color: var(--white);
+background: var(--orange);
+padding: 10px 0;
+border-radius: 4px 0px 0px 4px;
+font-weight: 800 !important;
+}
+`;
+
+export const SidebarSubNav = styled.div`
+display: flex;
+justify-content: flex-end;
+flex-direction: column;
+align-items: flex-end;
+padding-right: 30px;
+`;
+
+export const SidebarSubNavLink = styled(Link)`
+margin: 0.5rem 0;
+font-weight: 700;
+font-size: 14px;
+line-height: 25px;
+display: flex;
+color: var(--dashboard-nav-color);
+flex-direction: row;
+text-align: center;
+text-decoration: none;
+
+&.active {
+  color: var(--white);
+background: var(--orange);
+padding: 10px 0;
+border-radius: 4px 0px 0px 4px;
+font-weight: 800 !important;
+}
+`;
+
+
+export const SidebarNavLinkLogo = styled.img`
+height: 24px;
+width: 24px;
+margin:0 10px;
+`;
+
+export const SidebarFooter = styled.div`
+display: flex;
+flex-direction: column;
+padding: 0.5rem 0;
+`;
+
+export const DashboardRTLContent = styled.div`
+flex: 0 0 82%;
+max-width: 82%;
+height: 100%;
+`;
+
+export const MainContentHeader = styled.div`
+display: flex;
+width: 100%;
+padding: 0.3rem 1.5rem;
+height: 70px;
+border-bottom: 1px solid #667D86;
+flex-direction: row;
+justify-content: space-between;
+`;
+
+export const ProfileNav = styled.div`
+display: flex;
+justify-content: flex-start;
+flex-direction: row;
+flex: 0 0 30%;
+max-width: 30%;
+`;
+
+export const ProfilePhoto = styled.img`
+height: 40px;
+margin: 0.5rem 0;
 `;

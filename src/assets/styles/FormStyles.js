@@ -14,9 +14,10 @@ export const Form = styled.form`
 
 export const InputLabel = styled.label`
 font-weight: 600;
-font-size: 14px;
-line-height: 17px;
-color: var(--orange);
+font-size: 13px;
+line-height: 19px;
+color: var(--gray-2);
+margin-bottom: -10px;
 `;
 
 export const Input = styled.input`

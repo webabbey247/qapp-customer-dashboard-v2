@@ -9,8 +9,8 @@ const Homepage = () => {
             <HomeSection>
                 <ContentContainer>
                     <HeroBannerTop>
-                        <GeneralLgText textAlign="center" color='var(--orange)'>Manage Your Finances with ease</GeneralLgText>
-                        <GeneralSmText textAlign="center" color='var(--white)' margin="10px 0" textTransform="unset" padding="0 8rem">Transfer money, pay bills, apply for loan, top up etc all in on place</GeneralSmText>
+                        <GeneralLgText fontSize="43px" lineHieght="55.6px" textAlign="center" color='var(--orange)'>Manage your finances with ease</GeneralLgText>
+                        <GeneralSmText fontSize="20px" lineHeight="28px" textAlign="center" color='var(--white)' margin="10px 0" textTransform="unset" padding="0 8rem">Transfer money, pay bills, apply for loan, top up etc all in on place</GeneralSmText>
                         <HeroBannerCta to="/">Get started</HeroBannerCta>
                         <InternalCta to="/auth/sign-up">Not a customer? <ThemedText>Create an account.</ThemedText></InternalCta>
                     </HeroBannerTop>
