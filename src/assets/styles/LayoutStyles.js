@@ -274,11 +274,12 @@ export const ProfileNav = styled.div`
 display: flex;
 justify-content: flex-start;
 flex-direction: row;
-flex: 0 0 30%;
-max-width: 30%;
+flex: 0 0 50%;
+max-width: 50%;
 `;
 
 export const ProfilePhoto = styled.img`
 height: 40px;
 margin: 0.5rem 0;
+margin-right: 10px;
 `;

@@ -126,4 +126,8 @@
     border: none;
     border-bottom: 1px solid #D1D8DB;
   }
+
+  .agentNavBtn {
+    background: var(--orange);
+  }
  
