@@ -227,13 +227,13 @@ const Dashboard = () => {
                     <DashboardAccountContainer>
                         <DashboardAccountSummaryContent>
                             <DashboardTotalSummary>
-                                <GeneralMdText fontSize="18px" fontWeight="600" lineHeight="25px" color="var(--orange)" textTransform="unset" margin="5px 0" textAlign="left">Total Balance</GeneralMdText>
-                                <GeneralSmText fontSize="38px" fontWeight="600" lineHeight="46px" color="var(--white)" textTransform="unset" textAlign="left">N177,000</GeneralSmText>
+                                <GeneralMdText fontSize="16px" fontWeight="600" lineHeight="25px" color="var(--orange)" textTransform="unset" margin="5px 0" textAlign="left">Total Balance</GeneralMdText>
+                                <GeneralSmText fontSize="35px" fontWeight="600" lineHeight="46px" color="var(--white)" textTransform="unset" textAlign="left">N177,000</GeneralSmText>
                             </DashboardTotalSummary>
 
                             <DashboardSpentToday>
-                                <GeneralMdText fontSize="18px" fontWeight="600" lineHeight="25px" color="var(--orange)" textTransform="unset" margin="5px 0" textAlign="left">Spent today</GeneralMdText>
-                                <GeneralSmText fontSize="38px" fontWeight="600" lineHeight="46px" color="var(--white)" textTransform="unset" textAlign="left">N500</GeneralSmText>
+                                <GeneralMdText fontSize="16px" fontWeight="600" lineHeight="25px" color="var(--orange)" textTransform="unset" margin="5px 0" textAlign="left">Spent Today</GeneralMdText>
+                                <GeneralSmText fontSize="35px" fontWeight="600" lineHeight="46px" color="var(--white)" textTransform="unset" textAlign="left">N500</GeneralSmText>
                             </DashboardSpentToday>
                         </DashboardAccountSummaryContent>
 
