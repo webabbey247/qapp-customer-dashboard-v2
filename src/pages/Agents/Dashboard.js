@@ -422,6 +422,19 @@ const AgentDashboard = () => {
                                     </POSTableSummary>
                                 </TransactionTableGroup>
 
+                                <TransactionTableGroup>
+                                    <POSTableSummary>
+                                        <GeneralFlexRow>
+                                        <GeneralSmText color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" opacity="0.8" margin="20px 0 0">Adedamola’s POS</GeneralSmText>
+
+                                        <GeneralSmText margin="20px 0 0" color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" opacity="0.8">IMEI: 565661165316511JK46</GeneralSmText>
+
+                                       <CustomButton margin="0" width="30%" background="transparent" border="1px solid var(--orange)" color="var(--orange)">View History</CustomButton>
+                                            
+                                        </GeneralFlexRow>
+                                    </POSTableSummary>
+                                </TransactionTableGroup>
+
                                
 
                             </AgentTransactionsTableContainer>
