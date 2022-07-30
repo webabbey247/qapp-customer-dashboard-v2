@@ -196,7 +196,7 @@ display: flex;
 flex-direction: column;
 `;
 
-export const SidebarNavLink = styled.a`
+export const SidebarNavLink = styled(NavLink)`
 margin: 0.55rem 0;
 font-weight: 700;
 font-size: 14px;

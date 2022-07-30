@@ -6,7 +6,7 @@ export const MainContainer = styled.main`
 `;
 
 export const SiteContainer = styled.div`
-  width: min(100%, 85rem);
+  width: min(100%, 80rem);
 `;
 
 export const ContentRow = styled.div`
@@ -79,13 +79,9 @@ export const CustomDiv = styled.div`
   align-items: ${(props) => props.alignItems || null};
   margin: ${(props) => props.margin || "0"};
   padding: ${(props) => props.padding || "0"};
-  position: ${(props) => props.position || null};
   right: ${(props) => props.right || null};
-  top: ${(props) => props.top || null};
   max-width:  ${(props) => props.maxWidth || "100%"};
-  width: ${(props) => props.width || "100%"};
   flex: ${(props) => props.flex || "0 0 100%"};
-  border: ${(props) => props.border || "null"};
 `;
 
 export const CustomButton = styled.button`
@@ -124,12 +120,12 @@ font-size: ${(props) => props.fontSize || "48px"};
 line-height:  ${(props) => props.lineHeight || "58px"};
 color: ${(props) => props.color || "inherit"};
 text-align: ${(props) => props.textAlign || "left"};
-letter-spacing: ${(props) => props.spacing || "0.18px"};
 font-family: ${(props) => props.fontFamily || "var(--font-bold)"};
-width: ${(props) => props.width || "100%"};
+width: ${(props) => props.width || ""};
 padding: ${(props) => props.padding || "0"};
 margin: ${(props) => props.margin || "0"};
 text-transform: ${(props) => props.textTransform || "unset"};
+opacity: ${(props) => props.opacity || ""};
 `;
 
 export const GeneralMdText = styled.h4`
@@ -138,13 +134,12 @@ export const GeneralMdText = styled.h4`
   line-height:  ${(props) => props.lineHeight || "31px"};
   color: ${(props) => props.color || "#2b2d42"};
   text-align: ${(props) => props.textAlign || "left"};
-  letter-spacing: ${(props) => props.spacing || "0.18px"};
   font-family: ${(props) => props.fontFamily || "var(--font-semi-bold)"};
-  width: ${(props) => props.width || "100%"};
+  width: ${(props) => props.width || ""};
   padding: ${(props) => props.padding || "0"};
   margin: ${(props) => props.margin || "0"};
   text-transform: ${(props) => props.textTransform || "lowercase"};
-
+  opacity: ${(props) => props.opacity || ""};
 `;
 
 export const GeneralSmText = styled.p`
@@ -152,14 +147,36 @@ export const GeneralSmText = styled.p`
   font-size: ${(props) => props.fontSize || "24px"};
   line-height:  ${(props) => props.lineHeight || "29px"};
   text-align: ${(props) => props.textAlign || "left"};
-  letter-spacing: ${(props) => props.spacing || "0.18px"};
   color: ${(props) => props.color || ""};
   padding: ${(props) => props.padding || "0"};
   margin: ${(props) => props.margin || "0"};
   font-family: ${(props) => props.fontFamily || "var(--font-regular)"};
-  width: ${(props) => props.width || "100%"};
+  width: ${(props) => props.width || ""};
   height: ${(props) => props.height || "100%"};
   opacity: ${(props) => props.opacity || ""};
   text-transform: ${(props) => props.textTransform || "lowercase"};
   cursor: pointer;
+`;
+
+
+export const GeneralFlexRow = styled.div`
+display: flex;
+flex-direction: row;
+padding: ${(props) => props.padding || "0"};
+margin: ${(props) => props.margin || "0"};
+height: ${(props) => props.height || ""};
+width: ${(props) => props.width || "100%"};
+align-items: ${(props) => props.alignItems || ""};
+justify-content: ${(props) => props.justifyContent || "center"};
+`;
+
+export const GeneralFlexColumn = styled.div`
+display: flex;
+flex-direction: column;
+padding: ${(props) => props.padding || "0"};
+margin: ${(props) => props.margin || "0"};
+height: ${(props) => props.height || ""};
+width: ${(props) => props.width || "100%"};
+align-items: ${(props) => props.alignItems || ""};
+justify-content: ${(props) => props.justifyContent || "center"};
 `;

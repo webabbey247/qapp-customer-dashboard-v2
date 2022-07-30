@@ -5,6 +5,7 @@ import DashboardLayout from '../../components/Layouts/DashboardLayout';
 import { sendIcon, cardOpsIcon, utilityOpsIcon, debitIcon, creditIcon, arrowRightIcon } from '../../assets/images/images';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import { spiralBg } from '../../assets/images/images';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 
@@ -20,12 +21,15 @@ height: 250px;
 border-radius: 8px;
 display: flex;
 flex-direction: row;
-padding: 2rem 1rem;
+padding: 1rem 1rem;
 `;
 
 export const DashboardAccountSummaryContent = styled.div`
 display: flex;
 flex-direction: column;
+flex: 0 0 30%;
+margin-top: 1rem;
+
 `;
 
 export const DashboardTotalSummary = styled.div`
@@ -38,6 +42,34 @@ display: flex;
 flex-direction: column;
 margin-top: 1rem;
 `;
+
+export const DashboardMultipleAccountCards = styled.div`
+background: var(--orange);
+padding: .5rem 1rem;
+flex: 0 0 70%;
+border-radius: 8px; 
+display: flex;
+flex-direction: column;
+background-image: url("${spiralBg}");
+background-repeat: no-repeat;
+background-size: contain;
+background-position: right;
+`;
+
+export const DashMultipleAccountCardsTop = styled.div`
+margin: 10px 0;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+`;
+
+export const DashboardMultipleAccountRTL = styled.div`
+display: flex;
+flex-direction: row;
+flex: 0 0 32%;
+`;
+
+
 
 export const ExpenseTracker = styled.div`
 background: var(--secondary-2);
@@ -160,34 +192,34 @@ const Dashboard = () => {
     const data = {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [
-          {
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)',
-            ],
-            borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-              'rgba(153, 102, 255, 1)',
-              'rgba(255, 159, 64, 1)',
-            ],
-            borderWidth: 1,
-          },
+            {
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                ],
+                borderWidth: 1,
+            },
         ],
         options: {
             aspectRatio: 1,
             responsive: true,
-         cutoutPercentage: 90,
+            cutoutPercentage: 90,
         },
-      };
+    };
     return (
         <DashboardLayout>
             <DashboardTopSection>
@@ -200,16 +232,28 @@ const Dashboard = () => {
                             </DashboardTotalSummary>
 
                             <DashboardSpentToday>
-                            <GeneralMdText fontSize="18px" fontWeight="600" lineHeight="25px" color="var(--orange)" textTransform="unset" margin="5px 0" textAlign="left">Spent today</GeneralMdText>
+                                <GeneralMdText fontSize="18px" fontWeight="600" lineHeight="25px" color="var(--orange)" textTransform="unset" margin="5px 0" textAlign="left">Spent today</GeneralMdText>
                                 <GeneralSmText fontSize="38px" fontWeight="600" lineHeight="46px" color="var(--white)" textTransform="unset" textAlign="left">N500</GeneralSmText>
                             </DashboardSpentToday>
-
                         </DashboardAccountSummaryContent>
+
+                        <DashboardMultipleAccountCards>
+                            <DashMultipleAccountCardsTop>
+                                <GeneralMdText fontSize="16.13px" fontWeight="600" lineHeight="19px" color="var(--white)" textTransform="unset" margin="5px 0" textAlign="left">Available balance</GeneralMdText>
+
+                                <DashboardMultipleAccountRTL>
+                                <GeneralMdText fontSize="16.13px" fontWeight="600" lineHeight="19px" color="var(--white)" textTransform="unset" margin="5px 0" textAlign="right">View History</GeneralMdText>
+                                <TransactionViewAllIcon src={arrowRightIcon} alt="View All" />
+                                </DashboardMultipleAccountRTL>
+                            </DashMultipleAccountCardsTop>
+                            <GeneralMdText fontSize="55px" lineHeight="68px" fontWeight="700" textTransform="unset" color="var(--white)" margin="1.5rem 0">N14,500</GeneralMdText>
+                            <GeneralMdText fontSize="17px" lineHeight="26px" fontWeight="600" textTransform="unset" color="var(--white)" margin="0">Account 1</GeneralMdText>
+                        </DashboardMultipleAccountCards>
                     </DashboardAccountContainer>
                 </Content70Column>
                 <Content30Column>
                     <ExpenseTracker>
-                    <Doughnut data={data} />
+                        <Doughnut data={data} />
                     </ExpenseTracker>
                 </Content30Column>
             </DashboardTopSection>

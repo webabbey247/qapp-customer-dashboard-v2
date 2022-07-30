@@ -121,7 +121,7 @@ const Transfer = () => {
                   </Content2Column2>
 
                   <Content2Column2>
-                    <InputLabel>Bank Name</InputLabel>
+                    <InputLabel>Beneficiary Bank</InputLabel>
                     <Select
                       placeholder="Select Bank"
                       options={BankOptions}
@@ -129,7 +129,7 @@ const Transfer = () => {
                   </Content2Column2>
 
                   <Content2Column2>
-                    <InputLabel>To Account</InputLabel>
+                    <InputLabel>Beneficiary Account</InputLabel>
                     <Input
                       className=""
                       type='text'

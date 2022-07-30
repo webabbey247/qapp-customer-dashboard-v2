@@ -238,4 +238,13 @@ export const FormUploadLabel = styled.label`
   padding:0 6rem;
   margin-bottom: 20px;
   `;
+  
+
+export const InputIcon = styled.div`
+margin: 0px;
+padding: 0px;
+position: absolute;
+right: ${(props) => props.right || "5%"};
+top: ${(props) => props.top || "35%"};
+  `;
 

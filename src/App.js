@@ -9,6 +9,8 @@ import TransactionHistory from "./pages/Dashboard/TransactionHistory";
 import Transfer from "./pages/Dashboard/Transfer";
 import TopUp from "./pages/Dashboard/TopUp";
 import Utility from "./pages/Dashboard/Utility";
+import Loans from "./pages/Dashboard/Loans";
+import Settings from "./pages/Dashboard/Settings";
 
 //Import styles
 import "./assets/styles/App.css"
@@ -24,6 +26,8 @@ function App() {
         <Route path='/dashboard/transfer' element={<Transfer />} />
         <Route path='/dashboard/top-up' element={<TopUp />} />
         <Route path='/dashboard/utility' element={<Utility />} />
+        <Route path='/dashboard/loan' element={<Loans />} />
+        <Route path='/dashboard/settings' element={<Settings />} />
       </Routes>
     </Router>
   );

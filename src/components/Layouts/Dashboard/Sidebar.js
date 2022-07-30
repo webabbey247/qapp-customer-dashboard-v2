@@ -1,7 +1,7 @@
 import React from 'react';
 import { DashboardLTRContent, SidebarHeader, SidebarHeaderLogo, SidebarNav, SidebarFooter, SidebarNavGroup, SidebarNavGroupList, SidebarNavLink,SidebarSubNav, SidebarSubNavLink, SidebarNavLinkLogo } from '../../../assets/styles/LayoutStyles';
 import { bankLogoH, logoutIcon, messageIcon, dashboardIcon, activityIcon, cardIcon, loanIcon, settingsIcon } from '../../../assets/images/images';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
     return (
@@ -13,7 +13,7 @@ const Sidebar = () => {
                 <SidebarNav>
                     <SidebarNavGroup>
                         <SidebarNavGroupList>
-                        <SidebarNavLink to="/">
+                            <SidebarNavLink to="/dashboard/">
                                 <SidebarNavLinkLogo src={dashboardIcon} alt='Dashboard' />
                                 <>Dashboard</>
                             </SidebarNavLink>
@@ -37,7 +37,7 @@ const Sidebar = () => {
 
                     <SidebarNavGroup>
                         <SidebarNavGroupList>
-                            <SidebarNavLink>
+                            <SidebarNavLink to="/">
                                 <SidebarNavLinkLogo src={cardIcon} alt='Cards' />
                                 <>Cards</>
                             </SidebarNavLink>
@@ -46,7 +46,7 @@ const Sidebar = () => {
 
                     <SidebarNavGroup>
                         <SidebarNavGroupList>
-                            <SidebarNavLink>
+                            <SidebarNavLink to="/dashboard/loan">
                                 <SidebarNavLinkLogo src={loanIcon} alt='Loan' />
                                 <>Loan</>
                             </SidebarNavLink>
@@ -55,17 +55,20 @@ const Sidebar = () => {
 
                     <SidebarNavGroup>
                         <SidebarNavGroupList>
-                            <SidebarNavLink>
+                            <SidebarNavLink to="/dashboard/settings">
                                 <SidebarNavLinkLogo src={settingsIcon} alt='Settings' />
                                 <>Settings</>
                             </SidebarNavLink>
                         </SidebarNavGroupList>
                     </SidebarNavGroup>
+
                 </SidebarNav>
+
+
                 <SidebarFooter>
                     <SidebarNavGroup>
                         <SidebarNavGroupList>
-                            <SidebarNavLink>
+                            <SidebarNavLink to="/">
                                 <SidebarNavLinkLogo src={messageIcon} alt='Support' />
                                 <>Support</>
                             </SidebarNavLink>
@@ -74,14 +77,12 @@ const Sidebar = () => {
 
                     <SidebarNavGroup>
                         <SidebarNavGroupList>
-                            <SidebarNavLink>
+                            <SidebarNavLink to="/">
                                 <SidebarNavLinkLogo src={logoutIcon} alt='Logout' />
                                 <>Logout</>
                             </SidebarNavLink>
                         </SidebarNavGroupList>
                     </SidebarNavGroup>
-
-
                 </SidebarFooter>
             </DashboardLTRContent>
         </>
