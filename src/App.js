@@ -26,7 +26,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='/auth/sign-up' element={<SignUp />} />
-        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/dashboard/' element={<Dashboard />} />
         <Route path='/dashboard/transactions-history' element={<TransactionHistory />} />
         <Route path='/dashboard/transfer' element={<Transfer />} />
         <Route path='/dashboard/top-up' element={<TopUp />} />

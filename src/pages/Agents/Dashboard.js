@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Content2Column2, Content30Column, Content70Column, ContentFullColumn, ContentRow, CustomButton, CustomDiv, GeneralFlexColumn, GeneralFlexRow, GeneralMdText, GeneralSmText } from '../../assets/styles/GlobalStyles';
 import DashboardLayout from '../../components/Layouts/DashboardLayout';
+import AgentLayout from '../../components/Layouts/AgentLayout';
 import { sendIcon, cardOpsIcon, utilityOpsIcon, debitIcon, creditIcon, arrowRightIcon } from '../../assets/images/images';
 import { Doughnut } from 'react-chartjs-2';
 import { spiralBg, agentPlaceholder } from '../../assets/images/images';
@@ -272,7 +273,7 @@ const AgentDashboard = () => {
     const [togglePOS, setTogglePOS] = useState(false);
 
     return (
-        <DashboardLayout>
+        <AgentLayout>
             <DashboardTopSection>
                 <AgentDashboardProfile>
 
@@ -443,7 +444,7 @@ const AgentDashboard = () => {
 
                 </ContentFullColumn>
             </DashboardBottomSection>
-        </DashboardLayout>
+        </AgentLayout>
     )
 }
 
