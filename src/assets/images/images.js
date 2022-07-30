@@ -3,6 +3,7 @@ import bankLogoH from '../images/bank-one-logo-h.png';
 import chartPlaceholder from '../images/chart-like-placeholder.png';
 import profilePhoto from '../images/profile-img.png';
 import spiralBg from "../images/spiral-bg.png"
+import agentPlaceholder from "../images/agent-placeholder.png"
 
 // Icons
 import fileUploadIcon from "../images/icons/cloud-plus.png";
@@ -30,5 +31,5 @@ import caretUpIcon from "../images/icons/arrow-up.png"
 
 
 export {
-    bankLogo, chartPlaceholder, fileUploadIcon, bankLogoH, logoutIcon, messageIcon, dashboardIcon, activityIcon, cardIcon, loanIcon, settingsIcon, profilePhoto, sendIcon, cardOpsIcon, utilityOpsIcon, debitIcon, creditIcon, arrowRightIcon, modalCloseIcon, successIcon, cableTvIcon, electricityIcon, taxesIcon, visaIcon,caretRightIcon, spiralBg, caretUpIcon 
+    bankLogo, chartPlaceholder, fileUploadIcon, bankLogoH, logoutIcon, messageIcon, dashboardIcon, activityIcon, cardIcon, loanIcon, settingsIcon, profilePhoto, sendIcon, cardOpsIcon, utilityOpsIcon, debitIcon, creditIcon, arrowRightIcon, modalCloseIcon, successIcon, cableTvIcon, electricityIcon, taxesIcon, visaIcon,caretRightIcon, spiralBg, caretUpIcon, agentPlaceholder 
 }

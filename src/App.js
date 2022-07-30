@@ -12,6 +12,11 @@ import Utility from "./pages/Dashboard/Utility";
 import Loans from "./pages/Dashboard/Loans";
 import Settings from "./pages/Dashboard/Settings";
 
+//Import Agent ROutes
+
+import AgentDashboard from "./pages/Agents/Dashboard";
+
+
 //Import styles
 import "./assets/styles/App.css"
 
@@ -28,6 +33,9 @@ function App() {
         <Route path='/dashboard/utility' element={<Utility />} />
         <Route path='/dashboard/loan' element={<Loans />} />
         <Route path='/dashboard/settings' element={<Settings />} />
+
+        {/* {Agent Dashboard} */}
+        <Route path='/agents/dashboard' element={<AgentDashboard />} />
       </Routes>
     </Router>
   );
