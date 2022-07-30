@@ -146,6 +146,20 @@ const OperationSummaryModal = ({ typeUrl }) => {
                                 <ModalIcon src={modalCloseIcon} alt="close modal" />
                             </ModalClose>
 
+                            {typeUrl === 'loans' && (
+                                <ModalTopInfo>
+                                    <TransactionIcon src={successIcon} alt="Success" />
+                                    <GeneralMdText textAlign="center" margin="10px 0" fontSize="24px" lineHeight="29.23px" color="var(--white)" fontWeight="600" textTransform="unset">Success</GeneralMdText>
+                                    
+                                    <ModalTopChildren>
+                                    <GeneralMdText fontSize="14px" lineHeight="19.05px" color="var(--gray-2)" fontWeight="600" textAlign="center" textTransform="unset" margin="10px 0">A loan of N1,500,000.00 has be granted to your 
+account and willl be decuted automatically at the end
+of each intalmment month.</GeneralMdText>
+                                    </ModalTopChildren>
+                                </ModalTopInfo>
+                            )}
+
+
                             {typeUrl === 'utility' && (
                                 <ModalTopInfo>
                                     <TransactionIcon src={successIcon} alt="Success" />
@@ -211,7 +225,6 @@ const OperationSummaryModal = ({ typeUrl }) => {
                     </TransactionModal>
                 </TransactionModalBody>
             </ModalContainer>
-
         </>
     )
 }

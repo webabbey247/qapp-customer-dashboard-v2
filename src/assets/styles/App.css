@@ -120,4 +120,10 @@
     display: block;
     padding-top: 5px !important;
   }
+
+  hr {
+    padding: 1.5rem 0;
+    border: none;
+    border-bottom: 1px solid #D1D8DB;
+  }
  
