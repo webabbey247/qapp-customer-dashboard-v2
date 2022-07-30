@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Content2Column2, Content30Column, Content70Column, ContentFullColumn, ContentRow, CustomDiv, GeneralFlexColumn, GeneralFlexRow, GeneralMdText, GeneralSmText } from '../../assets/styles/GlobalStyles';
+import { Content2Column2, Content30Column, Content70Column, ContentFullColumn, ContentRow, CustomButton, CustomDiv, GeneralFlexColumn, GeneralFlexRow, GeneralMdText, GeneralSmText } from '../../assets/styles/GlobalStyles';
 import DashboardLayout from '../../components/Layouts/DashboardLayout';
 import { sendIcon, cardOpsIcon, utilityOpsIcon, debitIcon, creditIcon, arrowRightIcon } from '../../assets/images/images';
 import { Doughnut } from 'react-chartjs-2';
@@ -217,7 +217,7 @@ border-radius: 100px;
 display: flex;
 flex-direction: row;
 justify-content: space-around;
-flex: 0 0 30%;
+flex: 0 0 28%;
 `;
 
 export const TransactionToggleChild = styled.div`
@@ -256,11 +256,21 @@ background: var(--success);
 margin-right: 5px;
 `;
 
+export const POSTableSummary = styled.div`
+display: flex;
+flex-direction: row;
+padding: 1rem 0;
+justify-content: space-between;
+border-bottom: 1px solid #16323E;
+`;
+
 
 
 
 const AgentDashboard = () => {
-    const [toggle, setToggle] = useState(true);
+    const [toggleHistory, setToggleHistory] = useState(true);
+    const [togglePOS, setTogglePOS] = useState(false);
+
     return (
         <DashboardLayout>
             <DashboardTopSection>
@@ -268,12 +278,12 @@ const AgentDashboard = () => {
 
                     <AgentDashboardProfileList>
                         <GeneralFlexRow margin="0 0 0 4rem">
-                        <OnlineIconBadge/>
+                            <OnlineIconBadge />
                             <GeneralMdText fontWeight="600" textAlign="left" fontSize="14px" color="var(--dashboard-nav-color)" lineHeight="19px" textTransform="unset">Active</GeneralMdText>
                         </GeneralFlexRow>
-                            <AgentIconPlaceholder>
-                                <AgentPlaceholderImg src={agentPlaceholder} alt="Agent Dashboard" />
-                            </AgentIconPlaceholder>
+                        <AgentIconPlaceholder>
+                            <AgentPlaceholderImg src={agentPlaceholder} alt="Agent Dashboard" />
+                        </AgentIconPlaceholder>
                     </AgentDashboardProfileList>
 
                     <AgentDashboardProfileList>
@@ -305,93 +315,119 @@ const AgentDashboard = () => {
                 <ContentFullColumn>
                     <TransactionActionTab>
                         <TransactionToggle>
-                            <TransactionToggleChild className='active'>Recent History</TransactionToggleChild>
-                            <TransactionToggleChild>Registered POS</TransactionToggleChild>
+                            <TransactionToggleChild onClick={() => { setToggleHistory(true); setTogglePOS(false) }} className={toggleHistory ? 'active' : ""}>Recent History</TransactionToggleChild>
+                            <TransactionToggleChild onClick={() => { setTogglePOS(true); setToggleHistory(false) }} className={togglePOS ? 'active' : ""}>Registered POS</TransactionToggleChild>
                         </TransactionToggle>
                         <TransactionViewAll>
                             <GeneralMdText fontSize="16.13px" lineHeight="19.65px" fontWeight="600" textTransform="unset" textAlign="right" color="var(--white)" margin="3px 0 0">View All</GeneralMdText>
                             <TransactionViewAllIcon src={arrowRightIcon} alt="View All" />
                         </TransactionViewAll>
                     </TransactionActionTab>
-                    <TransactionTableSection>
-                        <AgentTransactionsTableContainer>
-                            <TransactionTableGroup>
-                                <GeneralSmText color="var(--white)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="0.5rem 0">Today</GeneralSmText>
-                                <TransactionTableSummary>
-                                    <TransactionTableSummaryLeft>
-                                        <TransactionTableSummaryLeftIcon src={debitIcon} alt="Debit" />
-                                        <TransactionTableSummaryLeftContent>
-                                            <GeneralSmText color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="3px 0" opacity="0.8">YEMI SALEM</GeneralSmText>
-                                            <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" opacity="0.8">9:00PM</GeneralSmText>
-                                        </TransactionTableSummaryLeftContent>
-                                    </TransactionTableSummaryLeft>
-                                    <TransactionTableSummaryRight>
-                                        <GeneralSmText color="var(--debit-color)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="right">2,000.00</GeneralSmText>
-                                    </TransactionTableSummaryRight>
-                                </TransactionTableSummary>
 
-                            </TransactionTableGroup>
+                    {toggleHistory && (
+                        <TransactionTableSection>
+                            <AgentTransactionsTableContainer>
+                                <TransactionTableGroup>
+                                    <GeneralSmText color="var(--white)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="0.5rem 0">Today</GeneralSmText>
+                                    <TransactionTableSummary>
+                                        <TransactionTableSummaryLeft>
+                                            <TransactionTableSummaryLeftIcon src={debitIcon} alt="Debit" />
+                                            <TransactionTableSummaryLeftContent>
+                                                <GeneralSmText color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="3px 0" opacity="0.8">YEMI SALEM</GeneralSmText>
+                                                <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" opacity="0.8">9:00PM</GeneralSmText>
+                                            </TransactionTableSummaryLeftContent>
+                                        </TransactionTableSummaryLeft>
+                                        <TransactionTableSummaryRight>
+                                            <GeneralSmText color="var(--debit-color)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="right">2,000.00</GeneralSmText>
+                                        </TransactionTableSummaryRight>
+                                    </TransactionTableSummary>
 
-                            <TransactionTableGroup>
-                                <GeneralSmText color="var(--white)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="0.5rem 0">Yesterday</GeneralSmText>
+                                </TransactionTableGroup>
 
-                                <TransactionTableSummary>
-                                    <TransactionTableSummaryLeft>
-                                        <TransactionTableSummaryLeftIcon src={creditIcon} alt="Debit" />
-                                        <TransactionTableSummaryLeftContent>
-                                            <GeneralSmText color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="3px 0">YEMI SALEM</GeneralSmText>
-                                            <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left">9:00PM</GeneralSmText>
-                                        </TransactionTableSummaryLeftContent>
-                                    </TransactionTableSummaryLeft>
-                                    <TransactionTableSummaryRight>
-                                        <GeneralSmText color="var(--credit-color)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="right">2,000.00</GeneralSmText>
-                                    </TransactionTableSummaryRight>
-                                </TransactionTableSummary>
+                                <TransactionTableGroup>
+                                    <GeneralSmText color="var(--white)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="0.5rem 0">Yesterday</GeneralSmText>
+
+                                    <TransactionTableSummary>
+                                        <TransactionTableSummaryLeft>
+                                            <TransactionTableSummaryLeftIcon src={creditIcon} alt="Debit" />
+                                            <TransactionTableSummaryLeftContent>
+                                                <GeneralSmText color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="3px 0">YEMI SALEM</GeneralSmText>
+                                                <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left">9:00PM</GeneralSmText>
+                                            </TransactionTableSummaryLeftContent>
+                                        </TransactionTableSummaryLeft>
+                                        <TransactionTableSummaryRight>
+                                            <GeneralSmText color="var(--credit-color)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="right">2,000.00</GeneralSmText>
+                                        </TransactionTableSummaryRight>
+                                    </TransactionTableSummary>
 
 
-                                <TransactionTableSummary>
-                                    <TransactionTableSummaryLeft>
-                                        <TransactionTableSummaryLeftIcon src={creditIcon} alt="Debit" />
-                                        <TransactionTableSummaryLeftContent>
-                                            <GeneralSmText color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="3px 0">YEMI SALEM</GeneralSmText>
-                                            <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left">9:00PM</GeneralSmText>
-                                        </TransactionTableSummaryLeftContent>
-                                    </TransactionTableSummaryLeft>
-                                    <TransactionTableSummaryRight>
-                                        <GeneralSmText color="var(--credit-color)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="right">2,000.00</GeneralSmText>
-                                    </TransactionTableSummaryRight>
-                                </TransactionTableSummary>
+                                    <TransactionTableSummary>
+                                        <TransactionTableSummaryLeft>
+                                            <TransactionTableSummaryLeftIcon src={creditIcon} alt="Debit" />
+                                            <TransactionTableSummaryLeftContent>
+                                                <GeneralSmText color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="3px 0">YEMI SALEM</GeneralSmText>
+                                                <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left">9:00PM</GeneralSmText>
+                                            </TransactionTableSummaryLeftContent>
+                                        </TransactionTableSummaryLeft>
+                                        <TransactionTableSummaryRight>
+                                            <GeneralSmText color="var(--credit-color)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="right">2,000.00</GeneralSmText>
+                                        </TransactionTableSummaryRight>
+                                    </TransactionTableSummary>
 
-                                <TransactionTableSummary>
-                                    <TransactionTableSummaryLeft>
-                                        <TransactionTableSummaryLeftIcon src={debitIcon} alt="Debit" />
-                                        <TransactionTableSummaryLeftContent>
-                                            <GeneralSmText color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="3px 0" opacity="0.8">YEMI SALEM</GeneralSmText>
-                                            <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" opacity="0.8">9:00PM</GeneralSmText>
-                                        </TransactionTableSummaryLeftContent>
-                                    </TransactionTableSummaryLeft>
-                                    <TransactionTableSummaryRight>
-                                        <GeneralSmText color="var(--debit-color)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="right">2,000.00</GeneralSmText>
-                                    </TransactionTableSummaryRight>
-                                </TransactionTableSummary>
+                                    <TransactionTableSummary>
+                                        <TransactionTableSummaryLeft>
+                                            <TransactionTableSummaryLeftIcon src={debitIcon} alt="Debit" />
+                                            <TransactionTableSummaryLeftContent>
+                                                <GeneralSmText color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="3px 0" opacity="0.8">YEMI SALEM</GeneralSmText>
+                                                <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" opacity="0.8">9:00PM</GeneralSmText>
+                                            </TransactionTableSummaryLeftContent>
+                                        </TransactionTableSummaryLeft>
+                                        <TransactionTableSummaryRight>
+                                            <GeneralSmText color="var(--debit-color)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="right">2,000.00</GeneralSmText>
+                                        </TransactionTableSummaryRight>
+                                    </TransactionTableSummary>
 
-                                <TransactionTableSummary>
-                                    <TransactionTableSummaryLeft>
-                                        <TransactionTableSummaryLeftIcon src={debitIcon} alt="Debit" />
-                                        <TransactionTableSummaryLeftContent>
-                                            <GeneralSmText color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="3px 0" opacity="0.8">YEMI SALEM</GeneralSmText>
-                                            <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" opacity="0.8">9:00PM</GeneralSmText>
-                                        </TransactionTableSummaryLeftContent>
-                                    </TransactionTableSummaryLeft>
-                                    <TransactionTableSummaryRight>
-                                        <GeneralSmText color="var(--debit-color)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="right">2,000.00</GeneralSmText>
-                                    </TransactionTableSummaryRight>
-                                </TransactionTableSummary>
+                                    <TransactionTableSummary>
+                                        <TransactionTableSummaryLeft>
+                                            <TransactionTableSummaryLeftIcon src={debitIcon} alt="Debit" />
+                                            <TransactionTableSummaryLeftContent>
+                                                <GeneralSmText color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="3px 0" opacity="0.8">YEMI SALEM</GeneralSmText>
+                                                <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" opacity="0.8">9:00PM</GeneralSmText>
+                                            </TransactionTableSummaryLeftContent>
+                                        </TransactionTableSummaryLeft>
+                                        <TransactionTableSummaryRight>
+                                            <GeneralSmText color="var(--debit-color)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="right">2,000.00</GeneralSmText>
+                                        </TransactionTableSummaryRight>
+                                    </TransactionTableSummary>
 
-                            </TransactionTableGroup>
+                                </TransactionTableGroup>
 
-                        </AgentTransactionsTableContainer>
-                    </TransactionTableSection>
+                            </AgentTransactionsTableContainer>
+                        </TransactionTableSection>
+                    )}
+
+{togglePOS && (
+                        <TransactionTableSection>
+                            <AgentTransactionsTableContainer>
+                                <TransactionTableGroup>
+                                    <POSTableSummary>
+                                        <GeneralFlexRow>
+                                        <GeneralSmText color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" opacity="0.8" margin="20px 0 0">Adedamola’s POS</GeneralSmText>
+
+                                        <GeneralSmText margin="20px 0 0" color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" opacity="0.8">IMEI: 565661165316511JK46</GeneralSmText>
+
+                                       <CustomButton margin="0" width="30%" background="transparent" border="1px solid var(--orange)" color="var(--orange)">View History</CustomButton>
+                                            
+                                        </GeneralFlexRow>
+                                    </POSTableSummary>
+                                </TransactionTableGroup>
+
+                               
+
+                            </AgentTransactionsTableContainer>
+                        </TransactionTableSection>
+                    )}
+
                 </ContentFullColumn>
             </DashboardBottomSection>
         </DashboardLayout>
