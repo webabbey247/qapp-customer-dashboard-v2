@@ -149,7 +149,8 @@ const Settings = () => {
                                 </ContentFullColumn>
 
                                 <ContentFullColumn>
-                                    <SettingsCardFormList onClick={() => setShowPasswordForm(!showPasswordForm)}>
+
+                                    {/* <SettingsCardFormList onClick={() => setShowPasswordForm(!showPasswordForm)}>
                                         <GeneralFlexRow margin="10px 0">
                                             <GeneralMdText fontSize="20px" lineHeight="24px" color="var(--white)" textTransform="unset" fontWeight="600">Change Password</GeneralMdText>
                                             <SettingsCardListImg src={showPasswordForm ? caretUpIcon : caretRightIcon} />
@@ -190,7 +191,7 @@ const Settings = () => {
                                                 </ContentRow>
                                             </Form>
                                         </GeneralFlexRow>
-                                    )}
+                                    )} */}
 
                                     <SettingsCardFormList onClick={() => setShowPinForm(!showPinForm)}>
                                         <GeneralFlexRow margin="10px 0">
