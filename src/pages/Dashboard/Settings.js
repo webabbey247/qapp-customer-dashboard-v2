@@ -65,9 +65,7 @@ height: 24px;
 
 
 const Settings = () => {
-    const [showPasswordForm, setShowPasswordForm] = useState(false);
     const [showPinForm, setShowPinForm] = useState(false);
-    const [showPassword, setShowPassword] = useState(false);
     const [showPin, setShowPin] = useState(false);
 
     return (
@@ -90,44 +88,40 @@ const Settings = () => {
                         <SettingsCard>
                             <ContentRow>
                                 <ContentFullColumn>
-                                    <GeneralMdText fontSize="20px" lineHeight="24px" color="var(--orange)" margin="10px 0" textTransform="unset" fontWeight="600">Personal Information</GeneralMdText>
+                                    <GeneralMdText fontSize="18px" lineHeight="24px" color="var(--orange)" margin="10px 0" textTransform="unset" fontWeight="600">Personal Information</GeneralMdText>
                                 </ContentFullColumn>
 
                                 <ContentFullColumn>
                                     <SettingsCardContent>
                                         <SettingsCardContentGroup>
-                                        <GeneralFlexColumn margin="auto">
-                                    <SettingsCardProfile src={profilePhoto} alt="Damola Alausa" />
-                                    <CustomButton background="var(--orange)" border="1px solid var(--orange)" color="var(--white)" fontWeight="600" margin="10px 0">Upload</CustomButton>
-                                </GeneralFlexColumn>
-
-                                           
-
-                                           
+                                            <GeneralFlexColumn margin="auto">
+                                                <SettingsCardProfile src={profilePhoto} alt="Damola Alausa" />
+                                                <CustomButton background="var(--orange)" border="1px solid var(--orange)" color="var(--white)" fontWeight="600" margin="10px 0">Upload</CustomButton>
+                                            </GeneralFlexColumn>
                                         </SettingsCardContentGroup>
 
 
                                         <SettingsCardContentGroup>
                                             <GeneralFlexColumn>
                                                 <GeneralMdText fontSize="16px" lineHeight="20px" color="var(--gray-3)" margin="10px 0" textTransform="unset" fontWeight="600">Name</GeneralMdText>
-                                                <GeneralMdText fontSize="20px" lineHeight="24px" color="var(--white)" margin="0" textTransform="unset" fontWeight="600">Alausa Adedamola</GeneralMdText>
+                                                <GeneralMdText fontSize="18px" lineHeight="24px" color="var(--white)" margin="0" textTransform="unset" fontWeight="600">Alausa Adedamola</GeneralMdText>
                                             </GeneralFlexColumn>
 
                                             <GeneralFlexColumn margin="10px 0">
                                                 <GeneralMdText fontSize="16px" lineHeight="20px" color="var(--gray-3)" margin="10px 0" textTransform="unset" fontWeight="600">Email</GeneralMdText>
-                                                <GeneralMdText fontSize="20px" lineHeight="24px" color="var(--white)" margin="0" textTransform="unset" fontWeight="600">adedamolajose@gmail.com</GeneralMdText>
+                                                <GeneralMdText fontSize="18px" lineHeight="24px" color="var(--white)" margin="0" textTransform="unset" fontWeight="600">adedamolajose@gmail.com</GeneralMdText>
                                             </GeneralFlexColumn>
 
                                             <GeneralFlexColumn>
                                                 <GeneralMdText fontSize="16px" lineHeight="20px" color="var(--gray-3)" margin="10px 0" textTransform="unset" fontWeight="600">Phone Number</GeneralMdText>
-                                                <GeneralMdText fontSize="20px" lineHeight="24px" color="var(--white)" margin="0" textTransform="unset" fontWeight="600">+234 706 727 6819</GeneralMdText>
+                                                <GeneralMdText fontSize="18px" lineHeight="24px" color="var(--white)" margin="0" textTransform="unset" fontWeight="600">+234 706 727 6819</GeneralMdText>
                                             </GeneralFlexColumn>
                                         </SettingsCardContentGroup>
 
                                         <SettingsCardContentGroup>
                                             <GeneralFlexColumn>
                                                 <GeneralMdText fontSize="16px" lineHeight="20px" color="var(--gray-3)" margin="10px 0" textTransform="unset" fontWeight="600">Address</GeneralMdText>
-                                                <GeneralMdText fontSize="20px" lineHeight="24px" color="var(--white)" margin="0" textTransform="unset" fontWeight="600">Raymon Njoku street, Lagos</GeneralMdText>
+                                                <GeneralMdText fontSize="18px" lineHeight="24px" color="var(--white)" margin="0" textTransform="unset" fontWeight="600">Raymon Njoku street, Lagos</GeneralMdText>
                                             </GeneralFlexColumn>
 
                                             <GeneralFlexColumn margin="10px 0">
@@ -145,57 +139,13 @@ const Settings = () => {
                         <SettingsCard>
                             <ContentRow>
                                 <ContentFullColumn>
-                                    <GeneralMdText fontSize="20px" lineHeight="24px" color="var(--orange)" margin="10px 0" textTransform="unset" fontWeight="600">Account Settings</GeneralMdText>
+                                    <GeneralMdText fontSize="18px" lineHeight="24px" color="var(--orange)" margin="10px 0" textTransform="unset" fontWeight="600">Account Settings</GeneralMdText>
                                 </ContentFullColumn>
 
                                 <ContentFullColumn>
-
-                                    {/* <SettingsCardFormList onClick={() => setShowPasswordForm(!showPasswordForm)}>
-                                        <GeneralFlexRow margin="10px 0">
-                                            <GeneralMdText fontSize="20px" lineHeight="24px" color="var(--white)" textTransform="unset" fontWeight="600">Change Password</GeneralMdText>
-                                            <SettingsCardListImg src={showPasswordForm ? caretUpIcon : caretRightIcon} />
-                                        </GeneralFlexRow>
-                                    </SettingsCardFormList>
-
-                                    {showPasswordForm && (
-                                        <GeneralFlexRow>
-                                            <Form>
-                                                <ContentRow>
-                                                    <Content3Column3>
-                                                        <InputLabel>Current Password</InputLabel>
-                                                        <Input type={showPassword ? "text" : "password"} value="1234" />
-                                                        <InputIcon onClick={()=> setShowPassword(!showPassword)}>
-                                                        {showPassword ?  <FiEye size="20" color='var(--white)' /> :  <FiEyeOff size="20" color='var(--white)' />}
-                                                        </InputIcon>
-                                                    </Content3Column3>
-
-                                                    <Content3Column3>
-                                                        <InputLabel>New Password</InputLabel>
-                                                        <Input type={showPassword ? "text" : "password"} value="1234" />
-                                                        <InputIcon onClick={()=> setShowPassword(!showPassword)}>
-                                                        {showPassword ?  <FiEye size="20" color='var(--white)' /> :  <FiEyeOff size="20" color='var(--white)' />}
-                                                        </InputIcon>
-                                                    </Content3Column3>
-
-                                                    <Content3Column3>
-                                                        <InputLabel>Confirm New Password</InputLabel>
-                                                        <Input type={showPassword ? "text" : "password"} value="1234" />
-                                                        <InputIcon onClick={()=> setShowPassword(!showPassword)}>
-                                                        {showPassword ?  <FiEye size="20" color='var(--white)' /> :  <FiEyeOff size="20" color='var(--white)' />}
-                                                        </InputIcon>
-                                                    </Content3Column3>
-
-                                                    <ContentFullColumn>
-                                                        <CustomButton width="30%" margin="10px 0" type="button" color="var(--white)" background="var(--step-color)" border="1px solid var(--step-color)">Update Password </CustomButton>
-                                                    </ContentFullColumn>
-                                                </ContentRow>
-                                            </Form>
-                                        </GeneralFlexRow>
-                                    )} */}
-
                                     <SettingsCardFormList onClick={() => setShowPinForm(!showPinForm)}>
                                         <GeneralFlexRow margin="10px 0">
-                                            <GeneralMdText fontSize="20px" lineHeight="24px" color="var(--white)" textTransform="unset" fontWeight="600">Change Transaction Pin</GeneralMdText>
+                                            <GeneralMdText fontSize="16px" lineHeight="24px" color="var(--white)" textTransform="unset" fontWeight="600">Change Transaction Pin</GeneralMdText>
                                             <SettingsCardListImg src={showPinForm ? caretUpIcon : caretRightIcon} />
                                         </GeneralFlexRow>
                                     </SettingsCardFormList>
@@ -207,24 +157,24 @@ const Settings = () => {
                                                     <Content3Column3>
                                                         <InputLabel>Current PIN</InputLabel>
                                                         <Input type={showPin ? "text" : "password"} value="1234" />
-                                                        <InputIcon onClick={()=> setShowPin(!showPin)}>
-                                                        {showPin ?  <FiEye size="20" color='var(--white)' /> :  <FiEyeOff size="20" color='var(--white)' />}
+                                                        <InputIcon onClick={() => setShowPin(!showPin)}>
+                                                            {showPin ? <FiEye size="20" color='var(--white)' /> : <FiEyeOff size="20" color='var(--white)' />}
                                                         </InputIcon>
                                                     </Content3Column3>
 
                                                     <Content3Column3>
                                                         <InputLabel>New PIN</InputLabel>
                                                         <Input type={showPin ? "text" : "password"} value="1234" />
-                                                        <InputIcon onClick={()=> setShowPin(!showPin)}>
-                                                        {showPin ?  <FiEye size="20" color='var(--white)' /> :  <FiEyeOff size="20" color='var(--white)' />}
+                                                        <InputIcon onClick={() => setShowPin(!showPin)}>
+                                                            {showPin ? <FiEye size="20" color='var(--white)' /> : <FiEyeOff size="20" color='var(--white)' />}
                                                         </InputIcon>
                                                     </Content3Column3>
 
                                                     <Content3Column3>
                                                         <InputLabel>Confirm New PIN</InputLabel>
                                                         <Input type={showPin ? "text" : "password"} value="1234" />
-                                                        <InputIcon onClick={()=> setShowPin(!showPin)}>
-                                                        {showPin ?  <FiEye size="20" color='var(--white)' /> :  <FiEyeOff size="20" color='var(--white)' />}
+                                                        <InputIcon onClick={() => setShowPin(!showPin)}>
+                                                            {showPin ? <FiEye size="20" color='var(--white)' /> : <FiEyeOff size="20" color='var(--white)' />}
                                                         </InputIcon>
                                                     </Content3Column3>
 
@@ -235,9 +185,6 @@ const Settings = () => {
                                             </Form>
                                         </GeneralFlexRow>
                                     )}
-
-
-
                                 </ContentFullColumn>
                             </ContentRow>
                         </SettingsCard>
@@ -245,34 +192,34 @@ const Settings = () => {
                         <SettingsCard>
                             <ContentRow>
                                 <ContentFullColumn>
-                                    <GeneralMdText fontSize="20px" lineHeight="24px" color="var(--orange)" margin="10px 0" textTransform="unset" fontWeight="600">Others</GeneralMdText>
+                                    <GeneralMdText fontSize="18px" lineHeight="24px" color="var(--orange)" margin="10px 0" textTransform="unset" fontWeight="600">Others</GeneralMdText>
                                 </ContentFullColumn>
 
                                 <ContentFullColumn>
                                     <SettingsCardList>
-                                        <GeneralFlexRow margin="10px 0">
-                                            <GeneralMdText fontSize="20px" lineHeight="24px" color="var(--white)" textTransform="unset" fontWeight="600">Privacy Policy</GeneralMdText>
+                                        <GeneralFlexRow margin="5px 0">
+                                            <GeneralMdText fontSize="16px" lineHeight="24px" color="var(--white)" textTransform="unset" fontWeight="600">Privacy Policy</GeneralMdText>
                                             <SettingsCardListImg src={caretRightIcon} />
                                         </GeneralFlexRow>
                                     </SettingsCardList>
 
                                     <SettingsCardList>
-                                        <GeneralFlexRow margin="10px 0">
-                                            <GeneralMdText fontSize="20px" lineHeight="24px" color="var(--white)" textTransform="unset" fontWeight="600">Terms and Conditions</GeneralMdText>
+                                        <GeneralFlexRow margin="5px 0">
+                                            <GeneralMdText fontSize="16px" lineHeight="24px" color="var(--white)" textTransform="unset" fontWeight="600">Terms and Conditions</GeneralMdText>
                                             <SettingsCardListImg src={caretRightIcon} />
                                         </GeneralFlexRow>
                                     </SettingsCardList>
 
                                     <SettingsCardList>
-                                        <GeneralFlexRow margin="10px 0">
-                                            <GeneralMdText fontSize="20px" lineHeight="24px" color="var(--white)" textTransform="unset" fontWeight="600">FAQs</GeneralMdText>
+                                        <GeneralFlexRow margin="5px 0">
+                                            <GeneralMdText fontSize="16px" lineHeight="24px" color="var(--white)" textTransform="unset" fontWeight="600">FAQs</GeneralMdText>
                                             <SettingsCardListImg src={caretRightIcon} />
                                         </GeneralFlexRow>
                                     </SettingsCardList>
 
                                     <SettingsCardList>
-                                        <GeneralFlexRow margin="10px 0">
-                                            <GeneralMdText fontSize="20px" lineHeight="24px" color="var(--white)" textTransform="unset" fontWeight="600">Contact Us</GeneralMdText>
+                                        <GeneralFlexRow margin="5px 0">
+                                            <GeneralMdText fontSize="16px" lineHeight="24px" color="var(--white)" textTransform="unset" fontWeight="600">Contact Us</GeneralMdText>
                                             <SettingsCardListImg src={caretRightIcon} />
                                         </GeneralFlexRow>
                                     </SettingsCardList>

@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { Content2Column2, Content30Column, Content70Column, ContentRow, CustomDiv, GeneralMdText, GeneralSmText } from '../../assets/styles/GlobalStyles';
 import DashboardLayout from '../../components/Layouts/DashboardLayout';
 import { sendIcon, cardOpsIcon, utilityOpsIcon, debitIcon, creditIcon, arrowRightIcon } from '../../assets/images/images';
+import { FiEye, FiEyeOff } from "react-icons/fi";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { spiralBg } from '../../assets/images/images';
@@ -91,7 +93,7 @@ border-radius: 8px;
 `;
 
 export const TransactionActionTab = styled.div`
-margin: 1rem 0;
+margin: 0.6rem 0;
 display: flex;
 flex-direction: row;
 justify-content: space-between;
@@ -161,7 +163,7 @@ margin: 0;
 padding: 0;
 `;
 
-export const OperationsCard = styled.div`
+export const OperationsCard = styled(Link)`
 background: var(--secondary-2);
 padding: 2.5rem 1.5rem;
 border-radius: 8px;
@@ -189,6 +191,7 @@ margin: 3px auto;
 
 
 const Dashboard = () => {
+    const [showBalance, setShowBalance] = React.useState(false);
     const data = {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [
@@ -227,27 +230,27 @@ const Dashboard = () => {
                     <DashboardAccountContainer>
                         <DashboardAccountSummaryContent>
                             <DashboardTotalSummary>
-                                <GeneralMdText fontSize="16px" fontWeight="600" lineHeight="25px" color="var(--orange)" textTransform="unset" margin="5px 0" textAlign="left">Total Balance</GeneralMdText>
-                                <GeneralSmText fontSize="35px" fontWeight="600" lineHeight="46px" color="var(--white)" textTransform="unset" textAlign="left">N177,000</GeneralSmText>
+                                <GeneralMdText fontSize="15px" fontWeight="400" lineHeight="20px" color="var(--orange)" textTransform="unset" margin="10px 0" textAlign="left">Total Balance</GeneralMdText>
+                                <GeneralSmText fontSize="35px" fontWeight="600" lineHeight="46px" color="var(--white)" textTransform="unset" textAlign="left">{showBalance ? "N177,000": "xxxxx"}</GeneralSmText>
                             </DashboardTotalSummary>
 
                             <DashboardSpentToday>
-                                <GeneralMdText fontSize="16px" fontWeight="600" lineHeight="25px" color="var(--orange)" textTransform="unset" margin="5px 0" textAlign="left">Spent Today</GeneralMdText>
+                                <GeneralMdText fontSize="15px" fontWeight="400" lineHeight="20px" color="var(--orange)" textTransform="unset" margin="10px 0" textAlign="left">Spent Today</GeneralMdText>
                                 <GeneralSmText fontSize="35px" fontWeight="600" lineHeight="46px" color="var(--white)" textTransform="unset" textAlign="left">N500</GeneralSmText>
                             </DashboardSpentToday>
                         </DashboardAccountSummaryContent>
 
                         <DashboardMultipleAccountCards>
                             <DashMultipleAccountCardsTop>
-                                <GeneralMdText fontSize="16.13px" fontWeight="600" lineHeight="19px" color="var(--white)" textTransform="unset" margin="5px 0" textAlign="left">Available balance</GeneralMdText>
+                                <GeneralMdText fontSize="15px" fontWeight="500" lineHeight="19px" color="var(--white)" textTransform="unset" margin="5px 0" textAlign="left">Available balance</GeneralMdText>
 
                                 <DashboardMultipleAccountRTL>
-                                <GeneralMdText fontSize="16.13px" fontWeight="600" lineHeight="19px" color="var(--white)" textTransform="unset" margin="5px 0" textAlign="right">View History</GeneralMdText>
-                                <TransactionViewAllIcon src={arrowRightIcon} alt="View All" />
+                                    <GeneralMdText fontSize="15px" fontWeight="500" lineHeight="19px" color="var(--white)" textTransform="unset" margin="5px 0" textAlign="right">View History</GeneralMdText>
+                                    <TransactionViewAllIcon src={arrowRightIcon} alt="View All" />
                                 </DashboardMultipleAccountRTL>
                             </DashMultipleAccountCardsTop>
-                            <GeneralMdText fontSize="55px" lineHeight="68px" fontWeight="700" textTransform="unset" color="var(--white)" margin="1.5rem 0">N14,500</GeneralMdText>
-                            <GeneralMdText fontSize="17px" lineHeight="26px" fontWeight="600" textTransform="unset" color="var(--white)" margin="0">Account 1</GeneralMdText>
+                            <GeneralMdText onClick={()=> setShowBalance(!showBalance)} fontSize="55px" lineHeight="68px" fontWeight="700" textTransform="unset" color="var(--white)" margin="1.5rem 0">{showBalance ? "N14,500": "xxxxxxx"} {showBalance ? <FiEye size="30" color='var(--white)' /> : <FiEyeOff size="30" color='var(--white)' />}</GeneralMdText>
+                            <GeneralMdText fontSize="15px" lineHeight="20px" fontWeight="500" textTransform="unset" color="var(--white)" margin="0">Account 1</GeneralMdText>
                         </DashboardMultipleAccountCards>
                     </DashboardAccountContainer>
                 </Content70Column>
@@ -261,9 +264,9 @@ const Dashboard = () => {
                 <Content70Column>
                     <TransactionTableSection>
                         <TransactionActionTab>
-                            <GeneralMdText fontSize="20px" lineHeight="24.36px" fontWeight="600" textTransform="unset" color="var(--white)">Recent Transaction</GeneralMdText>
+                            <GeneralMdText fontSize="18px" lineHeight="24.36px" fontWeight="600" textTransform="unset" color="var(--white)">Recent Transaction</GeneralMdText>
                             <TransactionViewAll>
-                                <GeneralMdText fontSize="16.13px" lineHeight="19.65px" fontWeight="600" textTransform="unset" textAlign="right" color="var(--white)" margin="3px 0 0">View All</GeneralMdText>
+                                <GeneralMdText fontSize="15px" lineHeight="20px" fontWeight="600" textTransform="unset" textAlign="right" color="var(--white)" margin="3px 0 0">View All</GeneralMdText>
                                 <TransactionViewAllIcon src={arrowRightIcon} alt="View All" />
                             </TransactionViewAll>
                         </TransactionActionTab>
@@ -362,7 +365,7 @@ const Dashboard = () => {
                     <OperationsCardContainer>
                         <ContentRow>
                             <Content2Column2>
-                                <OperationsCard>
+                                <OperationsCard to="/dashboard/transfer">
                                     <OperationsCardIconHolder>
                                         <OperationsCardIcon src={sendIcon} alt="Transfer" />
                                     </OperationsCardIconHolder>
@@ -372,7 +375,7 @@ const Dashboard = () => {
                             </Content2Column2>
 
                             <Content2Column2>
-                                <OperationsCard>
+                                <OperationsCard  to="/dashboard/top-up">
                                     <OperationsCardIconHolder>
                                         <OperationsCardIcon src={sendIcon} alt="Top up" />
                                     </OperationsCardIconHolder>
@@ -382,7 +385,7 @@ const Dashboard = () => {
                             </Content2Column2>
 
                             <Content2Column2>
-                                <OperationsCard>
+                                <OperationsCard  to="/dashboard/">
                                     <OperationsCardIconHolder>
                                         <OperationsCardIcon src={cardOpsIcon} alt="Cards" />
                                     </OperationsCardIconHolder>
@@ -392,7 +395,7 @@ const Dashboard = () => {
                             </Content2Column2>
 
                             <Content2Column2>
-                                <OperationsCard>
+                                <OperationsCard  to="/dashboard/utility">
                                     <OperationsCardIconHolder>
                                         <OperationsCardIcon src={utilityOpsIcon} alt="Utility bill" />
                                     </OperationsCardIconHolder>
