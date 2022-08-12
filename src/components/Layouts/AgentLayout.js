@@ -1,6 +1,6 @@
 import React from 'react';
 import AgentSidebar from './Dashboard/AgentSidebar';
-import AgentContent from './Dashboard/MainContent';
+import AgentContent from './Dashboard/AgentContent';
 import { DashboardContainer, DashboardContent } from '../../assets/styles/LayoutStyles';
 
 const AgentLayout = ({children}) => {

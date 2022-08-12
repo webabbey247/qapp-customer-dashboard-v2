@@ -225,9 +225,9 @@ padding: 0 3rem;
 
 export const SidebarSubNavLink = styled(NavLink)`
 margin: 0.4rem 0;
-font-weight: 700;
+font-weight: 400;
 font-size: 14px;
-line-height: 25px;
+line-height: 21px;
 display: flex;
 color: var(--dashboard-nav-color);
 flex-direction: row;

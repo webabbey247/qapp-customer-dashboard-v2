@@ -75,7 +75,7 @@ const Loans = () => {
                                 </GeneralFlexRow>
                             </Content4Column4>
                             <Content2Column2>
-                            <LoanCard>
+                            {/* <LoanCard>
                                         <GeneralMdText opacity="0.8" fontWeight="600" textAlign="left" fontSize="16px" color="var(--gray)" lineHeight="20px" textTransform="capitalize">Account 1</GeneralMdText>
                                         <GeneralFlexRow justifyContent="space-between" margin="20px 0 0">
                                             <GeneralFlexColumn>
@@ -88,7 +88,7 @@ const Loans = () => {
                                                 <GeneralMdText fontWeight="600" textAlign="right" fontSize="16px" color="var(--success)" lineHeight="19px" textTransform="capitalize">Eligible</GeneralMdText>
                                             </GeneralFlexColumn>
                                         </GeneralFlexRow>
-                                    </LoanCard>
+                                    </LoanCard> */}
                             </Content2Column2>
                         </ContentRow>
                     </SiteContainer>

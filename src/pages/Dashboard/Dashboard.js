@@ -30,7 +30,7 @@ export const DashboardAccountSummaryContent = styled.div`
 display: flex;
 flex-direction: column;
 flex: 0 0 30%;
-margin-top: 1rem;
+margin-top: 2.5rem;
 
 `;
 
@@ -56,6 +56,7 @@ background-image: url("${spiralBg}");
 background-repeat: no-repeat;
 background-size: contain;
 background-position: right;
+margin: 1rem 1rem 1rem 0;
 `;
 
 export const DashMultipleAccountCardsTop = styled.div`
@@ -167,7 +168,7 @@ export const OperationsCard = styled(Link)`
 background: var(--secondary-2);
 padding: 2.5rem 1.5rem;
 border-radius: 8px;
-margin: 0 0 15px;
+margin: 0 0 14px;
 display: flex;
 flex-direction: column;
 `;
@@ -193,26 +194,22 @@ margin: 3px auto;
 const Dashboard = () => {
     const [showBalance, setShowBalance] = React.useState(false);
     const data = {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: [ 'Utility bills', 'Total amount', 'Withdraw', 'Transfer'],
         datasets: [
             {
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: 'Expense Calculator',
+                data: [3, 19, 12, 5],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(250,226,211, 1)',
+                    'rgba(22,50,62, 1)',
+                    'rgba(93,95,239, 1)',
+                    'rgba(228,111,36, 1)',
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
+                    'rgba(250,226,211, 1)',
+                    'rgba(22,50,62, 1)',
+                    'rgba(93,95,239, 1)',
+                    'rgba(228,111,36, 1)',
                 ],
                 borderWidth: 1,
             },
@@ -221,7 +218,12 @@ const Dashboard = () => {
             aspectRatio: 1,
             responsive: true,
             cutoutPercentage: 90,
-        },
+            legend: {
+                position: 'bottom',
+                labels: {
+                boxWidth: 10
+            }
+        }}
     };
     return (
         <DashboardLayout>
@@ -230,27 +232,27 @@ const Dashboard = () => {
                     <DashboardAccountContainer>
                         <DashboardAccountSummaryContent>
                             <DashboardTotalSummary>
-                                <GeneralMdText fontSize="15px" fontWeight="400" lineHeight="20px" color="var(--orange)" textTransform="unset" margin="10px 0" textAlign="left">Total Balance</GeneralMdText>
-                                <GeneralSmText fontSize="35px" fontWeight="600" lineHeight="46px" color="var(--white)" textTransform="unset" textAlign="left">{showBalance ? "N177,000": "xxxxx"}</GeneralSmText>
+                                <GeneralMdText fontSize="14px" fontWeight="400" lineHeight="20px" color="var(--orange)" textTransform="unset" margin="0" textAlign="left">Total Balance</GeneralMdText>
+                                <GeneralSmText fontSize="30px" fontWeight="600" lineHeight="46px" color="var(--white)" textTransform="unset" textAlign="left">{showBalance ? "N177,000" : "xxxxx"}</GeneralSmText>
                             </DashboardTotalSummary>
 
                             <DashboardSpentToday>
-                                <GeneralMdText fontSize="15px" fontWeight="400" lineHeight="20px" color="var(--orange)" textTransform="unset" margin="10px 0" textAlign="left">Spent Today</GeneralMdText>
-                                <GeneralSmText fontSize="35px" fontWeight="600" lineHeight="46px" color="var(--white)" textTransform="unset" textAlign="left">N500</GeneralSmText>
+                                <GeneralMdText fontSize="14px" fontWeight="400" lineHeight="20px" color="var(--orange)" textTransform="unset" margin="0" textAlign="left">Spent Today</GeneralMdText>
+                                <GeneralSmText fontSize="30px" fontWeight="600" lineHeight="46px" color="var(--white)" textTransform="unset" textAlign="left">N500</GeneralSmText>
                             </DashboardSpentToday>
                         </DashboardAccountSummaryContent>
 
                         <DashboardMultipleAccountCards>
                             <DashMultipleAccountCardsTop>
-                                <GeneralMdText fontSize="15px" fontWeight="500" lineHeight="19px" color="var(--white)" textTransform="unset" margin="5px 0" textAlign="left">Available balance</GeneralMdText>
+                                <GeneralMdText fontSize="14px" fontWeight="500" lineHeight="19px" color="var(--white)" textTransform="unset" margin="5px 0" textAlign="left">Available balance</GeneralMdText>
 
                                 <DashboardMultipleAccountRTL>
-                                    <GeneralMdText fontSize="15px" fontWeight="500" lineHeight="19px" color="var(--white)" textTransform="unset" margin="5px 0" textAlign="right">View History</GeneralMdText>
+                                    <GeneralMdText fontSize="14px" fontWeight="500" lineHeight="19px" color="var(--white)" textTransform="unset" margin="5px 0" textAlign="right">View History</GeneralMdText>
                                     <TransactionViewAllIcon src={arrowRightIcon} alt="View All" />
                                 </DashboardMultipleAccountRTL>
                             </DashMultipleAccountCardsTop>
-                            <GeneralMdText onClick={()=> setShowBalance(!showBalance)} fontSize="55px" lineHeight="68px" fontWeight="700" textTransform="unset" color="var(--white)" margin="1.5rem 0">{showBalance ? "N14,500": "xxxxxxx"} {showBalance ? <FiEye size="30" color='var(--white)' /> : <FiEyeOff size="30" color='var(--white)' />}</GeneralMdText>
-                            <GeneralMdText fontSize="15px" lineHeight="20px" fontWeight="500" textTransform="unset" color="var(--white)" margin="0">Account 1</GeneralMdText>
+                            <GeneralMdText onClick={() => setShowBalance(!showBalance)} fontSize="40px" lineHeight="60px" fontWeight="700" textTransform="unset" color="var(--white)" margin="1rem 0">{showBalance ? "N14,500" : "xxxxxxx"} {showBalance ? <FiEye size="30" color='var(--white)' /> : <FiEyeOff size="30" color='var(--white)' />}</GeneralMdText>
+                            <GeneralMdText fontSize="14px" lineHeight="20px" fontWeight="500" textTransform="unset" color="var(--white)" margin="0">Account 1</GeneralMdText>
                         </DashboardMultipleAccountCards>
                     </DashboardAccountContainer>
                 </Content70Column>
@@ -266,7 +268,7 @@ const Dashboard = () => {
                         <TransactionActionTab>
                             <GeneralMdText fontSize="18px" lineHeight="24.36px" fontWeight="600" textTransform="unset" color="var(--white)">Recent Transaction</GeneralMdText>
                             <TransactionViewAll>
-                                <GeneralMdText fontSize="15px" lineHeight="20px" fontWeight="600" textTransform="unset" textAlign="right" color="var(--white)" margin="3px 0 0">View All</GeneralMdText>
+                                <GeneralMdText fontSize="14px" lineHeight="20px" fontWeight="600" textTransform="unset" textAlign="right" color="var(--white)" margin="3px 0 0">View All</GeneralMdText>
                                 <TransactionViewAllIcon src={arrowRightIcon} alt="View All" />
                             </TransactionViewAll>
                         </TransactionActionTab>
@@ -279,7 +281,7 @@ const Dashboard = () => {
                                         <TransactionTableSummaryLeftIcon src={debitIcon} alt="Debit" />
                                         <TransactionTableSummaryLeftContent>
                                             <GeneralSmText color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="3px 0" opacity="0.8">YEMI SALEM</GeneralSmText>
-                                            <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" opacity="0.8">9:00PM</GeneralSmText>
+                                            <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="400" textAlign="left" opacity="0.8">9:00 pm</GeneralSmText>
                                         </TransactionTableSummaryLeftContent>
                                     </TransactionTableSummaryLeft>
                                     <TransactionTableSummaryRight>
@@ -292,7 +294,7 @@ const Dashboard = () => {
                                         <TransactionTableSummaryLeftIcon src={debitIcon} alt="Debit" />
                                         <TransactionTableSummaryLeftContent>
                                             <GeneralSmText color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="3px 0" opacity="0.8">YEMI SALEM</GeneralSmText>
-                                            <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" opacity="0.8">9:00PM</GeneralSmText>
+                                            <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="400" textAlign="left" opacity="0.8">9:00pm</GeneralSmText>
                                         </TransactionTableSummaryLeftContent>
                                     </TransactionTableSummaryLeft>
                                     <TransactionTableSummaryRight>
@@ -305,7 +307,7 @@ const Dashboard = () => {
                                         <TransactionTableSummaryLeftIcon src={debitIcon} alt="Debit" />
                                         <TransactionTableSummaryLeftContent>
                                             <GeneralSmText color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="3px 0" opacity="0.8">YEMI SALEM</GeneralSmText>
-                                            <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" opacity="0.8">9:00PM</GeneralSmText>
+                                            <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="400" textAlign="left" opacity="0.8">9:00pm</GeneralSmText>
                                         </TransactionTableSummaryLeftContent>
                                     </TransactionTableSummaryLeft>
                                     <TransactionTableSummaryRight>
@@ -323,7 +325,7 @@ const Dashboard = () => {
                                         <TransactionTableSummaryLeftIcon src={creditIcon} alt="Debit" />
                                         <TransactionTableSummaryLeftContent>
                                             <GeneralSmText color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="3px 0">YEMI SALEM</GeneralSmText>
-                                            <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left">9:00PM</GeneralSmText>
+                                            <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="400" textAlign="left">9:00 pm</GeneralSmText>
                                         </TransactionTableSummaryLeftContent>
                                     </TransactionTableSummaryLeft>
                                     <TransactionTableSummaryRight>
@@ -336,7 +338,7 @@ const Dashboard = () => {
                                         <TransactionTableSummaryLeftIcon src={creditIcon} alt="Debit" />
                                         <TransactionTableSummaryLeftContent>
                                             <GeneralSmText color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="3px 0">YEMI SALEM</GeneralSmText>
-                                            <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left">9:00PM</GeneralSmText>
+                                            <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="400" textAlign="left">9:00 pm</GeneralSmText>
                                         </TransactionTableSummaryLeftContent>
                                     </TransactionTableSummaryLeft>
                                     <TransactionTableSummaryRight>
@@ -349,7 +351,7 @@ const Dashboard = () => {
                                         <TransactionTableSummaryLeftIcon src={creditIcon} alt="Debit" />
                                         <TransactionTableSummaryLeftContent>
                                             <GeneralSmText color="var(--gray)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left" margin="3px 0">YEMI SALEM</GeneralSmText>
-                                            <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="600" textAlign="left">9:00PM</GeneralSmText>
+                                            <GeneralSmText color="var(--gray-2)" fontSize="14px" lineHeight="17px" textTransform="unset" fontWeight="400" textAlign="left">9:00 pm</GeneralSmText>
                                         </TransactionTableSummaryLeftContent>
                                     </TransactionTableSummaryLeft>
                                     <TransactionTableSummaryRight>
@@ -375,7 +377,7 @@ const Dashboard = () => {
                             </Content2Column2>
 
                             <Content2Column2>
-                                <OperationsCard  to="/dashboard/top-up">
+                                <OperationsCard to="/dashboard/top-up">
                                     <OperationsCardIconHolder>
                                         <OperationsCardIcon src={sendIcon} alt="Top up" />
                                     </OperationsCardIconHolder>
@@ -385,7 +387,7 @@ const Dashboard = () => {
                             </Content2Column2>
 
                             <Content2Column2>
-                                <OperationsCard  to="/dashboard/">
+                                <OperationsCard to="/dashboard/">
                                     <OperationsCardIconHolder>
                                         <OperationsCardIcon src={cardOpsIcon} alt="Cards" />
                                     </OperationsCardIconHolder>
@@ -395,7 +397,7 @@ const Dashboard = () => {
                             </Content2Column2>
 
                             <Content2Column2>
-                                <OperationsCard  to="/dashboard/utility">
+                                <OperationsCard to="/dashboard/utility">
                                     <OperationsCardIconHolder>
                                         <OperationsCardIcon src={utilityOpsIcon} alt="Utility bill" />
                                     </OperationsCardIconHolder>

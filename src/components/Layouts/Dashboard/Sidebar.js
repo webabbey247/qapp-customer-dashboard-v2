@@ -29,7 +29,7 @@ const Sidebar = () => {
                            <SidebarSubNav>
                            <SidebarSubNavLink to="/dashboard/transactions-history">Transaction History</SidebarSubNavLink>
                             <SidebarSubNavLink to="/dashboard/transfer">Transfer</SidebarSubNavLink>
-                            <SidebarSubNavLink to="/dashboard/top-up">Top up</SidebarSubNavLink>
+                            <SidebarSubNavLink to="/dashboard/top-up">Top Up</SidebarSubNavLink>
                             <SidebarSubNavLink to="/dashboard/utility">Utility</SidebarSubNavLink>
                             </SidebarSubNav>
                         </SidebarNavGroupList>

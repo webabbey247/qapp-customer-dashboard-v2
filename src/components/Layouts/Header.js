@@ -17,6 +17,11 @@ import { FaGlobe } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import { bankLogo } from "../../assets/images/images";
 const Header = () => {
+    const CurrentUrl = window.location.href;
+    const BaseUrl = window.location.origin;
+    const SSO_URL = `http://auth.qappworld.com/login?client_id=743766160104&return_url=${CurrentUrl}&call_url=${BaseUrl}/callback`;
+    console.log("SSO url", SSO_URL);
+  
     return (
         <IconContext.Provider value={{ color: "#fff" }}>
             <Menu>

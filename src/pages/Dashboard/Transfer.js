@@ -36,7 +36,10 @@ margin: 2rem 0;
 export const FormOperationsContainer = styled.form`
 width: min(100%, 45rem);
 background: var(--secondary-2);
-padding: 3rem 2rem;
+// padding: 3rem 2rem;
+padding: 3rem 2rem 1.5rem;
+border-radius: 8px;
+
 `;
 
 export const FormOTP = styled.div`
@@ -44,7 +47,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-padding: 4rem;
+padding: 2rem 6rem;
 `;
 
 export const FormOTPContainer = styled.div`
@@ -55,6 +58,7 @@ width:min(100%, 25rem);
 
 const Transfer = () => {
   const [stepOne, setStepOne] = useState(true);
+  const [showOTPForm, setShowOTPForm] = React.useState(false)
   const [showModal, setShowModal] = React.useState(false)
 
 
@@ -86,11 +90,11 @@ const Transfer = () => {
               <Content2Column2>
                 <AccountSummary>
                   <AccountSummaryChild>
-                    <GeneralMdText fontWeight="600" textAlign="center" fontSize="14px" color="var(--orange)" lineHeight="19.49px" textTransform="unset">Total Balance</GeneralMdText>
+                    <GeneralMdText fontWeight="400" textAlign="center" fontSize="15px" color="var(--orange)" lineHeight="19.49px" textTransform="unset">Total Balance</GeneralMdText>
                     <GeneralMdText fontWeight="600" textAlign="center" fontSize="30px" color="var(--white)" lineHeight="41px" textTransform="unset">N177,000</GeneralMdText>
                   </AccountSummaryChild>
                   <AccountSummaryChild>
-                    <GeneralMdText fontWeight="600" textAlign="center" fontSize="14px" color="var(--orange)" lineHeight="19.49px" textTransform="unset">Spend Today</GeneralMdText>
+                    <GeneralMdText fontWeight="400" textAlign="center" fontSize="15px" color="var(--orange)" lineHeight="19.49px" textTransform="unset">Spend Today</GeneralMdText>
                     <GeneralMdText fontWeight="600" textAlign="center" fontSize="30px" color="var(--white)" lineHeight="41px" textTransform="unset">N500</GeneralMdText>
                   </AccountSummaryChild>
                 </AccountSummary>
@@ -101,82 +105,82 @@ const Transfer = () => {
 
         <FormOperationSection>
           <FormOperationsContainer>
-            <Form>
-              {stepOne ? (
-                <ContentRow>
-                  <Content2Column2>
-                    <InputLabel>Select Account To Debit</InputLabel>
-                    <Select
-                      placeholder="Select Preferred Account"
-                      options={AccountOptions}
-                    />
-                  </Content2Column2>
+              <ContentRow>
+                <Content2Column2>
+                  <InputLabel>Select Account To Debit</InputLabel>
+                  <Select
+                    placeholder="Select Preferred Account"
+                    options={AccountOptions}
+                  />
+                </Content2Column2>
 
-                  <Content2Column2>
-                    <InputLabel>Select Transfer Type</InputLabel>
-                    <Select
-                      placeholder="Select Transfer Type"
-                      options={TransferOptions}
-                    />
-                  </Content2Column2>
+                <Content2Column2>
+                  <InputLabel>Select Transfer Type</InputLabel>
+                  <Select
+                    placeholder="Select Transfer Type"
+                    options={TransferOptions}
+                  />
+                </Content2Column2>
 
-                  <Content2Column2>
-                    <InputLabel>Beneficiary Bank</InputLabel>
-                    <Select
-                      placeholder="Select Bank"
-                      options={BankOptions}
-                    />
-                  </Content2Column2>
+                <Content2Column2>
+                  <InputLabel>Beneficiary Bank</InputLabel>
+                  <Select
+                    placeholder="Select Bank"
+                    options={BankOptions}
+                  />
+                </Content2Column2>
 
-                  <Content2Column2>
-                    <InputLabel>Beneficiary Account</InputLabel>
-                    <Input
-                      className=""
-                      type='text'
-                      placeholder='Beneficiary Account'
-                    />
-                  </Content2Column2>
+                <Content2Column2>
+                  <InputLabel>Beneficiary Account</InputLabel>
+                  <Input
+                    className=""
+                    type='text'
+                    placeholder=""
+                  />
+                </Content2Column2>
 
-                  <Content2Column2>
-                    <InputLabel>Beneficiary Name</InputLabel>
-                    <Input
-                      className=""
-                      type='text'
-                      placeholder='Beneficiary Name'
-                    />
-                  </Content2Column2>
+                <Content2Column2>
+                  <InputLabel>Beneficiary Name</InputLabel>
+                  <Input
+                    className=""
+                    type='text'
+                    placeholder=''
+                  />
+                </Content2Column2>
 
-                  <Content2Column2>
-                    <InputLabel>Amount</InputLabel>
-                    <Input
-                      className=""
-                      type='text'
-                      placeholder='Amount'
-                    />
-                  </Content2Column2>
+                <Content2Column2>
+                  <InputLabel>Amount</InputLabel>
+                  <Input
+                    className=""
+                    type='text'
+                    placeholder=''
+                  />
+                </Content2Column2>
 
-                  <Content2Column2>
-                    <InputLabel>Description</InputLabel>
-                    <Input
-                      className=""
-                      type='text'
-                      placeholder='Description'
-                    />
-                  </Content2Column2>
-                  <ContentFullColumn>
-                    <CustomButton onClick={() => setStepOne(false)} margin="10px 0" type="button" color="var(--white)" background="var(--orange)" border="1px solid var(--orange)">
-                      Continue
-                    </CustomButton>
-                  </ContentFullColumn>
-                </ContentRow>
-              ) : (
-                <ContentRow>
+                <ContentFullColumn>
+                  <InputLabel>Description</InputLabel>
+                  <Input
+                    className=""
+                    type='text'
+                    placeholder=''
+                  />
+                </ContentFullColumn>
+
+                 {!showOTPForm && (
+                 <ContentFullColumn>
+                 <CustomButton onClick={() => setShowOTPForm(true)} margin="20px 0" type="button" color="var(--white)" background="var(--orange)" border="1px solid var(--orange)" fontWeight="600">
+                   Continue
+                 </CustomButton>
+               </ContentFullColumn> 
+                )}
+
+                {showOTPForm && (
                   <ContentFullColumn>
                     <FormOTP>
                       <FormOTPContainer>
                         <ContentRow>
                           <ContentFullColumn>
-                            <GeneralMdText fontWeight="600" textAlign="center" fontSize="20px" color="var(--white)" lineHeight="28px" textTransform="capitalize">Enter your transfer pin below</GeneralMdText>
+                            <GeneralMdText fontWeight="600" textAlign="center" fontSize="18px" color="var(--white)" lineHeight="28px" textTransform="unset">Enter your transfer pin below</GeneralMdText>
                           </ContentFullColumn>
                           <Content4Column4>
                             <Input
@@ -203,22 +207,22 @@ const Transfer = () => {
                             />
                           </Content4Column4>
                           <ContentFullColumn>
-                            <CustomButton onClick={() => setShowModal(true)} margin="10px 0" type="button" color="var(--white)" background="var(--orange)" border="1px solid var(--orange)">
-                              Continue
-                            </CustomButton>
-                          </ContentFullColumn>
+                    <CustomButton onClick={() => setShowModal(true)} margin="20px 0 0" type="button" color="var(--white)" background="var(--orange)" border="1px solid var(--orange)" fontWeight="600">
+                      Continue
+                    </CustomButton>
+                  </ContentFullColumn>
                         </ContentRow>
                       </FormOTPContainer>
                     </FormOTP>
                   </ContentFullColumn>
-                </ContentRow>)}
-            </Form>
 
+                )}
+              </ContentRow>
           </FormOperationsContainer>
         </FormOperationSection>
 
         {showModal && (
-          <OperationSummaryModal typeUrl="transfer" />)}
+          <OperationSummaryModal typeUrl="transfer" setShowModal={showModal} />)}
       </DashboardLayout>
     </>
   )

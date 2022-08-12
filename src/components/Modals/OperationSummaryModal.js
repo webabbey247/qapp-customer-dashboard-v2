@@ -135,15 +135,16 @@ color: var(--orange);
 
 
 
-const OperationSummaryModal = ({ typeUrl }) => {
+const OperationSummaryModal = ({ typeUrl, setshowModal }) => {
+    console.log(setshowModal);
     return (
         <>
             <ModalContainer>
                 <TransactionModalBody>
                     <TransactionModal>
                         <TransactionModalContent>
-                            <ModalClose>
-                                <ModalIcon src={modalCloseIcon} alt="close modal" />
+                            <ModalClose >
+                                <ModalIcon onClick={()=> setshowModal(false)} src={modalCloseIcon} alt="close modal" />
                             </ModalClose>
 
                             {typeUrl === 'loans' && (
@@ -189,7 +190,7 @@ of each intalmment month.</GeneralMdText>
                                     <ModalTopInfo>
                                         <TransactionIcon src={successIcon} alt="Success" />
                                         <GeneralMdText textAlign="center" margin="10px 0" fontSize="24px" lineHeight="29.23px" color="var(--white)" fontWeight="600" textTransform="unset">Success</GeneralMdText>
-                                        <GeneralMdText fontSize="14px" lineHeight="17.05px" color="var(--gray-2)" fontWeight="600" textAlign="center" textTransform="unset">Your transaction is successfull</GeneralMdText>
+                                        <GeneralMdText fontSize="14px" lineHeight="17.05px" color="var(--gray-2)" fontWeight="400" textAlign="center" textTransform="unset">Your transaction is successfull</GeneralMdText>
                                     </ModalTopInfo>
                                     <TransactionInfo>
                                         <OperationsInfoGroup>
@@ -197,22 +198,22 @@ of each intalmment month.</GeneralMdText>
                                         </OperationsInfoGroup>
 
                                         <OperationsInfoGroup>
-                                            <GeneralMdText fontWeight="600" color="var(--gray-2)" fontSize="14px" lineHeight="19.49px" textAlign="left" textTransform="unset">Amount</GeneralMdText>
+                                            <GeneralMdText fontWeight="400" color="var(--gray-2)" fontSize="14px" lineHeight="19.49px" textAlign="left" textTransform="unset">Amount</GeneralMdText>
                                             <GeneralMdText fontWeight="600" color="var(--white)" fontSize="16px" lineHeight="19.49px" textAlign="right" margin="" textTransform="unset">N2,000.00</GeneralMdText>
                                         </OperationsInfoGroup>
 
                                         <OperationsInfoGroup>
-                                            <GeneralMdText fontWeight="600" color="var(--gray-2)" fontSize="14px" lineHeight="19.49px" textAlign="left" textTransform="unset">Beneficiary</GeneralMdText>
+                                            <GeneralMdText fontWeight="400" color="var(--gray-2)" fontSize="14px" lineHeight="19.49px" textAlign="left" textTransform="unset">Beneficiary</GeneralMdText>
                                             <GeneralMdText fontWeight="600" color="var(--white)" fontSize="16px" lineHeight="19.49px" textAlign="right" margin="" textTransform="unset">Yemi Salem</GeneralMdText>
                                         </OperationsInfoGroup>
 
                                         <OperationsInfoGroup>
-                                            <GeneralMdText fontWeight="600" color="var(--gray-2)" fontSize="14px" lineHeight="19.49px" textAlign="left" textTransform="unset">From</GeneralMdText>
+                                            <GeneralMdText fontWeight="400" color="var(--gray-2)" fontSize="14px" lineHeight="19.49px" textAlign="left" textTransform="unset">From</GeneralMdText>
                                             <GeneralMdText fontWeight="600" color="var(--white)" fontSize="16px" lineHeight="19.49px" textAlign="right" margin="" textTransform="unset">Adedamola Alausa</GeneralMdText>
                                         </OperationsInfoGroup>
 
                                         <OperationsInfoGroup>
-                                            <GeneralMdText fontWeight="600" color="var(--gray-2)" fontSize="14px" lineHeight="19.49px" textAlign="left" textTransform="unset">Date</GeneralMdText>
+                                            <GeneralMdText fontWeight="400" color="var(--gray-2)" fontSize="14px" lineHeight="19.49px" textAlign="left" textTransform="unset">Date</GeneralMdText>
                                             <GeneralMdText fontWeight="600" color="var(--white)" fontSize="16px" lineHeight="19.49px" textAlign="right" margin="" textTransform="unset">24 July 2022, 13:05</GeneralMdText>
                                         </OperationsInfoGroup>
                                     </TransactionInfo>

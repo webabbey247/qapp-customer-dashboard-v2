@@ -103,29 +103,29 @@ const Settings = () => {
 
                                         <SettingsCardContentGroup>
                                             <GeneralFlexColumn>
-                                                <GeneralMdText fontSize="16px" lineHeight="20px" color="var(--gray-3)" margin="10px 0" textTransform="unset" fontWeight="600">Name</GeneralMdText>
+                                                <GeneralMdText fontSize="16px" lineHeight="20px" color="var(--gray-3)" margin="10px 0" textTransform="unset" fontWeight="400">Name</GeneralMdText>
                                                 <GeneralMdText fontSize="18px" lineHeight="24px" color="var(--white)" margin="0" textTransform="unset" fontWeight="600">Alausa Adedamola</GeneralMdText>
                                             </GeneralFlexColumn>
 
                                             <GeneralFlexColumn margin="10px 0">
-                                                <GeneralMdText fontSize="16px" lineHeight="20px" color="var(--gray-3)" margin="10px 0" textTransform="unset" fontWeight="600">Email</GeneralMdText>
+                                                <GeneralMdText fontSize="16px" lineHeight="20px" color="var(--gray-3)" margin="10px 0" textTransform="unset" fontWeight="400">Email</GeneralMdText>
                                                 <GeneralMdText fontSize="18px" lineHeight="24px" color="var(--white)" margin="0" textTransform="unset" fontWeight="600">adedamolajose@gmail.com</GeneralMdText>
                                             </GeneralFlexColumn>
 
                                             <GeneralFlexColumn>
-                                                <GeneralMdText fontSize="16px" lineHeight="20px" color="var(--gray-3)" margin="10px 0" textTransform="unset" fontWeight="600">Phone Number</GeneralMdText>
+                                                <GeneralMdText fontSize="16px" lineHeight="20px" color="var(--gray-3)" margin="10px 0" textTransform="unset" fontWeight="400">Phone Number</GeneralMdText>
                                                 <GeneralMdText fontSize="18px" lineHeight="24px" color="var(--white)" margin="0" textTransform="unset" fontWeight="600">+234 706 727 6819</GeneralMdText>
                                             </GeneralFlexColumn>
                                         </SettingsCardContentGroup>
 
                                         <SettingsCardContentGroup>
                                             <GeneralFlexColumn>
-                                                <GeneralMdText fontSize="16px" lineHeight="20px" color="var(--gray-3)" margin="10px 0" textTransform="unset" fontWeight="600">Address</GeneralMdText>
+                                                <GeneralMdText fontSize="16px" lineHeight="20px" color="var(--gray-3)" margin="10px 0" textTransform="unset" fontWeight="400">Address</GeneralMdText>
                                                 <GeneralMdText fontSize="18px" lineHeight="24px" color="var(--white)" margin="0" textTransform="unset" fontWeight="600">Raymon Njoku street, Lagos</GeneralMdText>
                                             </GeneralFlexColumn>
 
                                             <GeneralFlexColumn margin="10px 0">
-                                                <GeneralMdText fontSize="16px" lineHeight="20px" color="var(--gray-3)" margin="10px 0" textTransform="unset" fontWeight="600">Identification</GeneralMdText>
+                                                <GeneralMdText fontSize="16px" lineHeight="20px" color="var(--gray-3)" margin="10px 0" textTransform="unset" fontWeight="400">Identification</GeneralMdText>
                                                 <GeneralMdText fontSize="20px" lineHeight="24px" color="var(--white)" margin="0" textTransform="unset" fontWeight="600">Utility bill</GeneralMdText>
                                             </GeneralFlexColumn>
                                         </SettingsCardContentGroup>

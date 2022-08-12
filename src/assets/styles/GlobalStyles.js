@@ -155,7 +155,6 @@ export const GeneralSmText = styled.p`
   height: ${(props) => props.height || "100%"};
   opacity: ${(props) => props.opacity || ""};
   text-transform: ${(props) => props.textTransform || "lowercase"};
-  cursor: pointer;
 `;
 
 
